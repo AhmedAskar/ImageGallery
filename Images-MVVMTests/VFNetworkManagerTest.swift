@@ -1,15 +1,14 @@
 //
-//  Images_MVVMTests.swift
+//  VFNetworkManagerTest.swift
 //  Images-MVVMTests
 //
-//  Created by Ahmed Askar on 10/9/18.
+//  Created by Ahmed Askar on 10/19/18.
 //  Copyright © 2018 Ahmed Askar. All rights reserved.
 //
 
 import XCTest
-@testable import Images_MVVM
 
-class Images_MVVMTests: XCTestCase {
+class VFNetworkManagerTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
