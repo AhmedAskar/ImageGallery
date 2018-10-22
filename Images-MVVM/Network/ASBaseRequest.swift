@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ASBaseRequest: VFRequest {
+class ASBaseRequest: ASRequest {
     
     lazy var url: URL? = {
         guard let urlString = "\(environment.getBaseUrl())\(path.absolutePath)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
@@ -25,11 +25,11 @@ class ASBaseRequest: VFRequest {
         return urlComponents?.url
     }()
     
-    var environment: VFUrlEnvironment {
+    var environment: ASUrlEnvironment {
         return .environment
     }
     
-    var path: VFAPIPath
+    var path: ASAPIPath
     
     var parameters: [String : Any]?
     
@@ -46,7 +46,7 @@ class ASBaseRequest: VFRequest {
     /**
      Initializing a new ASBaseRequest.
      */
-    init(path: VFAPIPath,
+    init(path: ASAPIPath,
          parameters: [String : Any]? = nil,
          queryParameters: [String : String]? = nil,
          headers: [String : String] = [:],

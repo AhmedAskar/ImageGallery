@@ -16,7 +16,7 @@ class ASGalleryDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: Properities
-    var viewModel: VFImageDetailsViewModel?
+    var viewModel: ASImageDetailsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

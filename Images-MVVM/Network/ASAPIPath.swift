@@ -1,5 +1,5 @@
 //
-//  VFAPIPath.swift
+//  ASAPIPath.swift
 //  Images-MVVM
 //
 //  Created by Ahmed Askar on 10/11/18.
@@ -9,11 +9,11 @@
 import Foundation
 
 /**
- VFAPIPath names
+ ASAPIPath names
  Contains APIs names
  */
 
-enum VFAPIPath {
+enum ASAPIPath {
     case imageGallery(page: Int, gallerySection: String)
     
     var absolutePath: String {

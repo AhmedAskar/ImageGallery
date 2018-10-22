@@ -40,10 +40,10 @@ protocol ASRequest {
     var url: URL? {set get}
     
     // The environment
-    var environment: VFUrlEnvironment {get}
+    var environment: ASUrlEnvironment {get}
 
     // The API path
-    var path: VFAPIPath {get}
+    var path: ASAPIPath {get}
     
     // The request parameters
     var parameters: [String : Any]? {set get}

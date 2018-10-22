@@ -20,7 +20,7 @@ protocol VFNetworkManagerProtocol {
 
 final class ASNetworkManager {
     
-    func executeRequest(request: VFRequest, completionHandlerForExecuteRequest: @escaping(Result)->()) {
+    func executeRequest(request: ASRequest, completionHandlerForExecuteRequest: @escaping(Result)->()) {
         
         //Detecting Request HTTP Method
         var httpMethod : HTTPMethod = .get
@@ -86,7 +86,7 @@ extension ASNetworkManager: VFNetworkManagerProtocol {
     
     func getImagesGallery(page: Int, gallerySection: String, _ parameter: [String:String], completionHandlerForImages: @escaping(Result)->()) {
         
-        let request = VFBaseRequest(path: .imageGallery(page: page, gallerySection: gallerySection), queryParameters: parameter, httpMethod: .get, parametersEncoding: .json, responseType: .json)
+        let request = ASBaseRequest(path: .imageGallery(page: page, gallerySection: gallerySection), queryParameters: parameter, httpMethod: .get, parametersEncoding: .json, responseType: .json)
         
         executeRequest(request: request) { (result) in
             switch result {

@@ -7,29 +7,54 @@
 //
 
 import XCTest
+import Alamofire
+
+@testable import Images_MVVM
 
 class VFNetworkManagerTest: XCTestCase {
+    
+    var networkManager: ASNetworkManager?
+    var request = ASBaseRequest.init(path: .imageGallery(page: 1, gallerySection: "hot"))
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkManager = ASNetworkManager()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        networkManager = nil
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFetchImages() {
+        
+        // Given A apiservice
+        let networkManager = self.networkManager!
+        
+        // When fetch popular photo
+        let expect = XCTestExpectation(description: "callback")
+        networkManager.executeRequest(request: request, completionHandlerForExecuteRequest: { (result) in
+            expect.fulfill()
+            switch result {
+            case .success(let response):
+                do{
+                    let response = response as! DataResponse<Any>
+                    if let data = response.data {
+                        let responseModel = try! JSONDecoder().decode(Gallery.self, from: data)
+                        XCTAssertNotNil(responseModel)
+                        XCTAssertNotNil(responseModel.data)
+                        XCTAssertNotNil(responseModel.images)
+                        XCTAssertNotNil(responseModel.images?[0].id)
+                    }
+                }
+            case .failure(let error):
+                XCTAssertNil(error)
+            }
+        })
+        
+        wait(for: [expect], timeout: 3.1)
     }
     
 }

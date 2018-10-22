@@ -28,8 +28,8 @@ class ASGalleryViewController: UIViewController {
 
     var gallerySelection: String?
     
-    lazy var viewModel: ImageGalleryViewModel = {
-        return ImageGalleryViewModel()
+    lazy var viewModel: ASImageGalleryViewModel = {
+        return ASImageGalleryViewModel()
     }()
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -90,16 +90,16 @@ extension ASGalleryViewController {
         
         let alertController = UIAlertController(title: Constants.changeStyleTitle, message: nil, preferredStyle: .actionSheet)
         
-        let action1 = UIAlertAction(title: Style.list.rawValue, style: .default) { (action:UIAlertAction) in
-            self.collectionChangeDisplay(style: .list)
+        let action1 = UIAlertAction(title: Style.list.rawValue, style: .default) { [weak self] (action:UIAlertAction) in
+            self?.collectionChangeDisplay(style: .list)
         }
         
-        let action2 = UIAlertAction(title: Style.grid.rawValue, style: .default) { (action:UIAlertAction) in
-            self.collectionChangeDisplay(style: .grid)
+        let action2 = UIAlertAction(title: Style.grid.rawValue, style: .default) { [weak self] (action:UIAlertAction) in
+            self?.collectionChangeDisplay(style: .grid)
         }
         
-        let action3 = UIAlertAction(title: Style.staggered.rawValue, style: .default) { (action:UIAlertAction) in
-            self.collectionChangeDisplay(style: .staggered)
+        let action3 = UIAlertAction(title: Style.staggered.rawValue, style: .default) { [weak self] (action:UIAlertAction) in
+            self?.collectionChangeDisplay(style: .staggered)
         }
         
         let action4 = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -116,7 +116,7 @@ extension ASGalleryViewController {
         
         switch style {
         case .list:
-            collectionView.collectionViewLayout = ListLayout()
+            collectionView.collectionViewLayout = ASListLayout()
             collectionView.reloadData()
             viewDidLayoutSubviews()
             collectionView?.collectionViewLayout.invalidateLayout()
@@ -132,8 +132,8 @@ extension ASGalleryViewController {
             collectionView?.collectionViewLayout.invalidateLayout()
 
         case .staggered:
-            collectionView.collectionViewLayout = StaggeredLayout()
-            if let layout = collectionView?.collectionViewLayout as? StaggeredLayout {
+            collectionView.collectionViewLayout = ASStaggeredLayout()
+            if let layout = collectionView?.collectionViewLayout as? ASStaggeredLayout {
                 layout.delegate = self
             }
             collectionView.reloadData()
@@ -168,24 +168,26 @@ extension ASGalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnnotatedPhotoCell", for: indexPath)
+        
+        guard let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ASImageCellView.self), for: indexPath) as? ASImageCellView else {
+            fatalError("Cell not exists in storyboard")
+        }
         
         let image = viewModel.getImage(indexPath: indexPath)
-        if let annotateCell = cell as? AnnotatedPhotoCell {
-            annotateCell.commentLabel.text = image.title
-            if let imgUrl = image.link {
-                annotateCell.imageView.sd_setImage(with: URL(string:imgUrl), completed: nil)
-            }
+        imageCell.commentLabel.text = image.title
+        if let imgUrl = image.link {
+            imageCell.imageView.sd_setImage(with: URL(string:imgUrl), completed: nil)
         }
-        return cell
+        
+        return imageCell
     }
 }
 
 extension ASGalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = viewModel.getImage(indexPath: indexPath)
-        let vc = storyboard?.instantiateViewController(withIdentifier: "GalleryDetailsViewController") as! GalleryDetailsViewController
-            let imageDetailsViewModel = VFImageDetailsViewModel(image: image)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "GalleryDetailsViewController") as! ASGalleryDetailsViewController
+            let imageDetailsViewModel = ASImageDetailsViewModel(image: image)
             vc.viewModel = imageDetailsViewModel
         self.navigationController?.pushViewController(vc, animated: true)
     }

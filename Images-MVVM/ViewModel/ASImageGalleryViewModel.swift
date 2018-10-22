@@ -1,5 +1,5 @@
 //
-//  ImageGalleryViewModel.swift
+//  ASImageGalleryViewModel.swift
 //  Images-MVVM
 //
 //  Created by Ahmed Askar on 10/9/18.
@@ -50,7 +50,7 @@ class ASImageGalleryViewModel {
     
     // MARK: Initializer
     
-    init(networkService: VFNetworkManagerProtocol = VFNetworkManager()) {
+    init(networkService: VFNetworkManagerProtocol = ASNetworkManager()) {
         self.networkService = networkService
     }
     
@@ -69,7 +69,6 @@ class ASImageGalleryViewModel {
             case .failure(let error):
                 self?.isLoading = false
                 self?.alertMessage = error.localizedDescription
-                break
             }
         }
     }
