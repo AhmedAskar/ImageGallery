@@ -65,10 +65,8 @@ class VFImageGalleryViewModelTest: XCTestCase {
         viewModelTest.initFetch(page: 1, gallerySection: "hot", showViral: true)
         mockNetworkManager.fetchSuccess()
         
-        // Number of cell view model is equal to the number of products
         XCTAssertEqual(40, galleryModel.images!.count)
         
-        // XCTAssert reload closure triggered
         wait(for: [expect], timeout: 1.0)
     }
     
@@ -101,7 +99,6 @@ class VFImageGalleryViewModelTest: XCTestCase {
     }
 }
 
-//MARK: State control
 extension VFImageGalleryViewModelTest {
     private func goToFetchImagesFinished() {
         mockNetworkManager.gallery = StubGenerator().stubGallery()
