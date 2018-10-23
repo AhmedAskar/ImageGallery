@@ -7,7 +7,6 @@ target 'Images-MVVM' do
   
   # Pods for Images-MVVM
   pod 'Alamofire', '~> 4.7.2'
-  pod 'Kingfisher', '~> 4.8.1'
   pod 'SDWebImage', '~> 4.0'
   
   target 'Images-MVVMTests' do
