@@ -8,7 +8,8 @@ target 'Images-MVVM' do
   # Pods for Images-MVVM
   pod 'Alamofire', '~> 4.7.2'
   pod 'SDWebImage', '~> 4.0'
-  
+  pod 'ASSpinnerView'
+
   target 'Images-MVVMTests' do
     inherit! :search_paths
     # Pods for testing

@@ -88,7 +88,7 @@
                                     <outlet property="delegate" destination="vhm-IE-ebQ" id="xps-SB-ARv"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-PN-Fx0" customClass="ASSpinnerView" customModule="Images_MVVM" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PC-PN-Fx0" customClass="ASSpinnerView" customModule="ASSpinnerView">
                                 <rect key="frame" x="152.5" y="330.5" width="70" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

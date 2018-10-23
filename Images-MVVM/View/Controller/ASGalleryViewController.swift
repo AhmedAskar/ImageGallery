@@ -7,6 +7,7 @@ import UIKit
 import AVFoundation
 import SDWebImage
 import AVFoundation
+import ASSpinnerView
 
 enum Style: String {
     case list = "List"
