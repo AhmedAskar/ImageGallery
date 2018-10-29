@@ -93,8 +93,8 @@ extension ASNetworkManager: VFNetworkManagerProtocol {
                 
             case .success(let response):
                 do{
-                    let response = response as! DataResponse<Any>
-                    if let data = response.data {
+                    let response = response as? DataResponse<Any>
+                    if let data = response?.data {
                         let responseModel = try! JSONDecoder().decode(Gallery.self, from: data)
                         completionHandlerForImages(Result.success(responseModel))
                     }

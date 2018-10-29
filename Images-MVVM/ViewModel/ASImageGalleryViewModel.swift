@@ -61,8 +61,8 @@ class ASImageGalleryViewModel {
             switch result {
             case .success(let response):
                 self?.isLoading = false
-                let response = response as! Gallery
-                if let images = response.images {
+                let response = response as? Gallery
+                if let images = response?.images {
                     self?.images = images
                 }
             case .failure(let error):
