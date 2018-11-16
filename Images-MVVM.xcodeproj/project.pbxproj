@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140BBD4F219EFFB000C43B05 /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140BBD4E219EFFB000C43B05 /* Obfuscator.swift */; };
 		142989EF217A7CBB00CDCEE1 /* VFNetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142989EE217A7CBB00CDCEE1 /* VFNetworkManagerTest.swift */; };
 		142989F1217A7F8B00CDCEE1 /* VFImageGalleryViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142989F0217A7F8B00CDCEE1 /* VFImageGalleryViewModelTest.swift */; };
 		14553F71216D48FA00A551AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14553F70216D48FA00A551AE /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140BBD4E219EFFB000C43B05 /* Obfuscator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
 		142989EE217A7CBB00CDCEE1 /* VFNetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFNetworkManagerTest.swift; sourceTree = "<group>"; };
 		142989F0217A7F8B00CDCEE1 /* VFImageGalleryViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFImageGalleryViewModelTest.swift; sourceTree = "<group>"; };
 		14553F6D216D48FA00A551AE /* Images-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Images-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 			children = (
 				14553F9E216E21EB00A551AE /* Constant.swift */,
 				14596BB12178BD620084AFA9 /* Application+Bundle.swift */,
+				140BBD4E219EFFB000C43B05 /* Obfuscator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				14553F71216D48FA00A551AE /* AppDelegate.swift in Sources */,
 				14596BB021789A9C0084AFA9 /* ASListLayout.swift in Sources */,
 				14553F94216D4AA200A551AE /* ASRequest.swift in Sources */,
+				140BBD4F219EFFB000C43B05 /* Obfuscator.swift in Sources */,
 				14553FBC2173557500A551AE /* ASStaggeredLayout.swift in Sources */,
 				14553F9D216D4ADD00A551AE /* ASImageGalleryViewModel.swift in Sources */,
 				14596BB42178C1310084AFA9 /* ASGalleryDetailsViewController.swift in Sources */,
@@ -614,7 +618,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Images-MVVM/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Askar.Images-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -630,7 +637,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Images-MVVM/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Askar.Images-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -646,7 +656,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Images-MVVMTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Askar.Images-MVVMTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -663,7 +677,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Images-MVVMTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Askar.Images-MVVMTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

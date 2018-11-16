@@ -10,6 +10,10 @@ import Foundation
 
 class ASBaseRequest: ASRequest {
     
+    lazy var obfuscator: Obfuscator = {
+        return Obfuscator()
+    }()
+    
     lazy var url: URL? = {
         guard let urlString = "\(environment.getBaseUrl())\(path.absolutePath)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return nil
@@ -68,10 +72,14 @@ class ASBaseRequest: ASRequest {
     /**
      Define generic headers
      */
-    func getGenericHeaders() -> [String: String]{
+    func getGenericHeaders() -> [String: String] {
+        
+        let clientID = obfuscator.reveal(key: ObfuscatedConstants.clientID)
         var headers: [String: String] = [:]
-        headers["Authorization"] = Constants.clientID
+        headers["Authorization"] = clientID
         return headers
     }
-    
 }
+
+
+
