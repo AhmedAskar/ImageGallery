@@ -10,7 +10,8 @@ import Foundation
 
 struct Constants {
     
-    //static let clientID = "Client-ID b6c1834db7de4f8" // Of course we should encrypt this client ID
+    //static let clientID = "Client-ID b6c1834db7de4f8" // Of course we should encrypt this client ID and save it in Keychain
+    
     static let defaultCellWidth = 185.0
     static let defaultCellHeight = 300.0
     static let defaultCellHeightRatio = 400.0
