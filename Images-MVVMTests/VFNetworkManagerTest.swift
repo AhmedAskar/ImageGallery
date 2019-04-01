@@ -57,4 +57,21 @@ class VFNetworkManagerTest: XCTestCase {
         wait(for: [expect], timeout: 3.1)
     }
     
+    func testFunctionThatThrows() {
+        XCTAssertThrowsError(try functionThatThrows()) { error in
+            XCTAssertEqual(error as! MyError, MyError.someExpectedError)
+        }
+    }
+    
 }
+
+enum MyError: Error {
+    case someExpectedError
+    case someUnexpectedError
+}
+
+func functionThatThrows() throws {
+    throw MyError.someExpectedError
+}
+
+

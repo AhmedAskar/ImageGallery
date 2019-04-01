@@ -2,8 +2,7 @@
 //  Obfuscator.swift
 //  Images-MVVM
 //
-//  Created by Ahmed Askar on 10/16/18.
-//  Copyright © 2018 Ahmed Askar. All rights reserved.
+//  Created by Dejan Atanasov on 2017-05-31.
 //
 
 import Foundation
